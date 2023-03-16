@@ -6,8 +6,7 @@ Este projeto é uma introdução a Redes, disciplina muito relevante no
 contexto de Sistemas de Programação. Para entender corretamente o que
 deve ser feito deve-se entender quais os princípios e processos
 utilizados para realizar troca de informações entre duas máquinas, tudo
-isso será aprofundado na disciplina "Redes de Computadores" em algum
-momento no futuro.
+isso será aprofundado na disciplina "Redes de Computadores".
 
 ## Base de Segurança
 
@@ -25,22 +24,20 @@ divididos entre várias camadas de abstração, desde os modelos físicos
 que definem os cabos a serem utilizados até modelos de aplicação, que
 definem como utilizar os serviços nos softwares. Cada tipo de protocolo
 em cada uma das camadas tem uma finalidade específica e propriedades das
-mais variadas, que devem ser analisadas com cautela (existe até um
-protocolo para comunicação de internet por pombos-correio, chamado
-[IPoAC](https://en.wikipedia.org/wiki/IP_over_Avian_Carriers)).
+mais variadas, que devem ser analisadas com cautela.
 
-Os protocolos de Internet são muito complexos pois definem uma
+Os protocolos de internet são muito complexos pois definem uma
 quantidade grande de parâmetros importantes para que seja possibilitada
 uma boa transmissão das informações. Porém, para um caso simples, em que
 poucas máquinas estão se comunicando, apenas remetente, destinatário e
-mensagem são informações necessárias.
+mensagem são informações suficientes.
 
 ## O que será fornecido
 
 Para a execução do trabalho, é necessário que hajam funções de operações
 adicionais que possam ser executadas. Por isso é fornecido na própria
 implementação da MVN alguns métodos de realizar mais operações sobre
-dispositivos e timers. Para atualizar os valores lidos em um dispositivo
+dispositivos e _timers_. Para atualizar os valores lidos em um dispositivo
 (caso tenham aparecido novas informações em um arquivo, por exemplo)
 deve-se utilizar a função `OS` com operação `0x0D`, o identificador do
 dispositivo como argumento e o valor 1 no acumulador. Para interromper a
@@ -48,34 +45,36 @@ execução por um período de tempo, deve-se utilizar a função `OS` com
 operação `0x71`, nenhum argumento e o número de milissegundos para esperar no
 acumulador. Para definir um _timeout_ para entradas do teclado, deve-se
 invocar a MVN com a flag `-t` seguida do tempo em milissegundos para
-esperar o usuário entrar com um valor no teclado antes de retornar 0 no
+esperar o usuário entrar com um valor no teclado antes de retornar `0` no
 acumulador.
 
 ## O trabalho
 
 O trabalho consiste na implementação de um mecanismo simples para que
-seja possibilitada a comunicação entre duas MVNs.
+permita a comunicação entre duas MVNs.
 
 O meio de comunicação entre as duas máquinas deve ser um arquivo, de
-onde as duas escrevem e leem, ou dois arquivos, de uma uma lê e outra
+que as duas escrevem e leem, ou dois arquivos, de que uma lê e outra
 escreve. Você deve implementar, utilizando esse(s) arquivo(s), um código
-que realize um tipo de chat entre as MVNs, ou qualquer outra
-funcionalidade análoga, não necessariamente fazendo leitura do teclado,
-mas isso seria legal. Pode ser interessante iniciar fazendo uma máquina
+que realize um tipo de _chat_ entre as MVNs, ou qualquer outra
+funcionalidade análoga, fazendo por exemplo a leitura do teclado.
+
+É possível começar o desenvolvimento fazendo uma máquina
 que apenas escreve e outra que apenas lê e depois unificar os códigos.
 
+O trabalho pode ser feito em duplas ou individualmente. Definir escopo
+de uso do comunicador, mensagens de erro coerentes, eventuais limitações
+e funcionalidades não comentadas acima fazem parte do trabalho.
+
 ### Desafio
+
 Uma característica comum em alguns protocolos de comunicação é
 a identificação das partes quando se inicia a troca de informações.
 Nestes casos, uma das máquinas manda uma mensagem de início de conversa
 se identificando e a outra responde aceitando a comunicação e se
 identificando também (chamado protocolo de _handshake_). Você deve
 implementar como desafio um sistema desse tipo para iniciar a
-comunicação das duas MVN's.
-
-O trabalho pode ser feito em duplas ou individualmente. Definir escopo
-de uso do comunicador, mensagens de erro coerentes, eventuais limitações
-e funcionalidades não comentadas acima FAZEM parte do trabalho.
+comunicação das duas MVNs.
 
 ## Perguntas
 
